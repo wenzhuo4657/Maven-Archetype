@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ==================== 基本信息 ==================== -->
+    <!-- Archetype项目的实际信息（不是模板变量） -->
+    <groupId>org.wenzhuo4657</groupId>
+    <artifactId>simply-DDD-archetype</artifactId>
+    <version>1.0.0</version>
+
+    <!-- 关键：指定packaging为maven-archetype，这样Maven才知道这是一个archetype项目 -->
+    <packaging>maven-archetype</packaging>
+
+    <!-- 项目名称和描述，便于在仓库中识别 -->
+    <name>Simply DDD Maven Archetype</name>
+    <description>一个简单的领域驱动设计(DDD) Spring Boot项目脚手架</description>
+    <url>https://github.com/wenzhuo4657/simply-DDD-archetype</url>
+
+    <!-- ==================== 属性配置 ==================== -->
+    <properties>
+        <!-- Java版本：使用LTS（长期支持）版本，稳定性更好 -->
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+
+        <!-- 项目编码：统一使用UTF-8，避免中文乱码问题 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Maven Archetype插件版本：使用稳定版本 -->
+        <archetype.plugin.version>3.2.1</archetype.plugin.version>
+
+        <!-- Java版本别名：在依赖管理中使用 -->
+        <java.version>17</java.version>
+    </properties>
+
+    <!-- ==================== 构建配置 ==================== -->
+    <build>
+        <!-- 扩展配置：添加archetype打包类型的支持 -->
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>3.2.1</version>
+            </extension>
+        </extensions>
+
+        <!-- 插件管理 -->
+        <pluginManagement>
+            <plugins>
+                <!-- Maven Archetype插件：用于创建和验证archetype -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-archetype-plugin</artifactId>
+                    <version>${archetype.plugin.version}</version>
+                    <configuration>
+                        <!-- 是否启用调试模式，开发时可以设为true查看详细日志 -->
+                        <debug>false</debug>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>create-from-project</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!-- Maven编译插件：确保使用正确的Java版本编译 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.11.0</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+
+                <!-- Maven测试插件：确保测试能正确执行 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.1.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <!-- 实际使用的插件 -->
+        <plugins>
+            <!-- Maven Archetype插件：核心插件，用于archetype的创建和打包 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-archetype-plugin</artifactId>
+                <version>${archetype.plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- ==================== 开发者信息（可选） ==================== -->
+    <developers>
+        <developer>
+            <id>wenzhuo4657</id>
+            <name>wenzhuo</name>
+            <email>wenzhuo4657@example.com</email>
+        </developer>
+    </developers>
+
+    <!-- ==================== 许可证信息（可选） ==================== -->
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+</project>
