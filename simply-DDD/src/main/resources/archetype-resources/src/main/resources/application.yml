@@ -1,0 +1,41 @@
+
+# ==================== 应用配置 ====================
+spring:
+  application:
+    name: ${rootArtifactId}
+
+
+# ==================== 服务器配置 ====================
+server:
+  port: 8080
+#  servlet:
+#    context-path: /
+
+
+# ==================== 日志配置 ====================
+logging:
+  level:
+    # 根日志级别
+    root: INFO
+    # 本应用包的日志级别
+    ${package}: DEBUG
+    # Spring框架日志级别
+    org.springframework: INFO
+    # 数据库相关日志
+    org.springframework.data: INFO
+    # Spring Security日志
+    org.springframework.security: INFO
+  pattern:
+    # 控制台日志格式
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    # 文件日志格式
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    # 日志文件路径
+    name: logs/${rootArtifactId}.log
+    # 日志文件最大大小
+    max-size: 10MB
+    # 保留的日志文件数量
+    max-history: 30
+
+

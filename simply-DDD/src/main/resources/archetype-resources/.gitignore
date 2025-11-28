@@ -1,0 +1,140 @@
+# ==================== Git 忽略文件配置 ====================
+#
+# 这个文件告诉 Git 哪些文件和目录不应该被版本控制。
+# 对于 Java/Spring Boot 项目，这些文件通常是自动生成的、
+# 包含敏感信息的或者个人开发环境相关的文件。
+
+# ==================== Maven 构建输出 ====================
+# Maven 构建时生成的目录
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# ==================== IDE 相关文件 ====================
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# ==================== 操作系统相关文件 ====================
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Linux
+*~
+
+# ==================== 日志文件 ====================
+# 应用程序日志文件
+logs/
+*.log
+*.log.*
+log/
+LOG/
+
+# Spring Boot 日志
+logback-spring.xml
+
+# ==================== 临时文件 ====================
+# 临时文件和缓存
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.nojekyll
+
+# ==================== 数据库文件 ====================
+# 本地数据库文件（SQLite、H2 等）
+*.db
+*.sqlite
+*.sqlite3
+*.h2.db
+
+# ==================== 配置文件（包含敏感信息） ====================
+# 生产环境配置文件（通常包含数据库密码等信息）
+application-prod.yml
+application-prod.properties
+application-production.yml
+application-production.properties
+
+# 自定义配置文件中的敏感信息
+config/secrets.yml
+config/secrets.properties
+
+# ==================== 依赖和包管理 ====================
+# Node.js（如果项目包含前端代码）
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==================== 文档和报告 ====================
+# 生成的文档和报告
+/site/
+docs/generated/
+reports/
+
+# ==================== 备份文件 ====================
+# 自动备份文件
+*.bak
+*.backup
+*.orig
+
+# ==================== 测试相关 ====================
+# 测试覆盖率报告
+coverage/
+*.lcov
+
+# JaCoCo 报告
+target/site/jacoco/
+
+# ==================== 应用运行时文件 ====================
+# 应用程序运行时生成的文件
+application.pid
+spring.pid
+
+# H2 数据库文件（如果使用文件模式）
+*.db
+*.trace.db
